@@ -1,5 +1,22 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+    }
+  }
+
+  backend "azurerm" {
+    resource_group_name  = "BandiGithub"
+    storage_account_name = "bandigithubterraform"
+    container_name       = "tfstate"
+    key                  = "terraform.tfsatet"
+    use_oidc             = ture
+  }
+}
+
 provider "azurerm" {
   features {}
+  use_oidc = true
 }
 
 # module "common" {
