@@ -21,12 +21,15 @@ jobs:
       uses: hashicorp/setup-terraform@v2
       
     - name: Terraform init
+      working-directory: ".dev/"
       id: init
       run: terraform init
       
     - name: Terraform plan
+      working-directory: ".dev/"
       id: plan
       run: terraform plan -input=false -no-color -out tf.plan
       
     - name: Terraform Apply
+      working-directory: ".dev/"
       run: terraform apply -input=false tf.plan
