@@ -9,7 +9,7 @@ terraform {
     resource_group_name  = "BandiGithub"
     storage_account_name = "bandigithubterraform"
     container_name       = "tfstate"
-    key                  = "terraform.tfsatet"
+    key                  = "dev.etlproject.tfsatet"
   }
 }
 
