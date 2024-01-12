@@ -1,2 +1,2 @@
 # Infrastructure
-Azure infrastructure using Terraform. 
+Azure infrastructure using Terraform
