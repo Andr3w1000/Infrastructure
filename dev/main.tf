@@ -10,7 +10,6 @@ terraform {
     storage_account_name = "bandigithubterraform"
     container_name       = "tfstate"
     key                  = "terraform.tfsatet"
-    use_oidc             = ture
   }
 }
 
