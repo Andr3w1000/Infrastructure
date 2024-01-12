@@ -18,16 +18,16 @@ provider "azurerm" {
   use_oidc = true
 }
 
-# module "common" {
-#   source = "../shared"
-# }
+module "common" {
+  source = "../shared"
+}
 
-# locals {
-#   merged_tags = merge(
-#     module.common.global_default_tags,
-#     var.default_tags
-#   )
-# }
+locals {
+  merged_tags = merge(
+    module.common.global_default_tags,
+    var.default_tags
+  )
+}
 
 
 # data "azurerm_client_config" "current" {}
@@ -45,7 +45,7 @@ resource "azurerm_storage_account" "storageAcc" {
   account_replication_type = "LRS"
   account_kind             = "StorageV2"
   is_hns_enabled           = "true"
-  tags                     = var.default_tags
+  tags                     = local.merged_tags
 }
 
 # # HACK: Role assignment is needed to apply adls gen2 filesystem changes
