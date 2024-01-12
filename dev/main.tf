@@ -35,6 +35,7 @@ locals {
 resource "azurerm_resource_group" "rg" {
   name     = "ETL-project"
   location = "West Europe"
+  tags     = local.merged_tags
 }
 
 resource "azurerm_storage_account" "storageAcc" {
