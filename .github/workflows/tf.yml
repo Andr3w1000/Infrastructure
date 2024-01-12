@@ -30,6 +30,10 @@ jobs:
       working-directory: "dev/"
       id: init
       run: terraform init
+
+    - name: Terraform Sync state
+      working-directory: "dev/"
+      run: terraform refresh
       
     - name: Terraform plan
       working-directory: "dev/"
