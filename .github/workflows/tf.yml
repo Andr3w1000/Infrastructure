@@ -32,7 +32,7 @@ jobs:
     - name: Terraform init
       working-directory: "."
       id: init
-      run: terraform -hdir=dev init 
+      run: terraform -chdir=dev init 
        
     - name: Terraform plan
       id: plan
@@ -59,7 +59,7 @@ jobs:
     - name: Terraform init
       working-directory: "."
       id: init
-      run: terraform -hdir=qa init 
+      run: terraform -chdir=qa init 
        
     - name: Terraform plan
       id: plan
