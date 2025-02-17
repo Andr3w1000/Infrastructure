@@ -3,12 +3,12 @@ resource "azurerm_resource_group" "resourcegroups" {
     location    = var.Location
 }
 
-data "azurerm_service_principal" "devOps" {
-  display_name = "GitHubDevOps"  # Replace with your Service Principal's Display Name
-}
+# data "azurerm_service_principal" "devOps" {
+#   display_name = "GitHubDevOps"  # Replace with your Service Principal's Display Name
+# }
 
 resource "azurerm_role_assignment" "example" {
-  principal_id   = devOps.id
+  principal_id   = "823aa1dc-d6f9-421a-bf26-70240d155855"
   role_definition_name = "Contributor"
   scope           = azurerm_resource_group.example.id
 }
