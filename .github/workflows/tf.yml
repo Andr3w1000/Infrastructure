@@ -35,7 +35,7 @@ jobs:
     - name: Terraform init
       working-directory: "."
       id: init
-      run: terraform -chdir=dev init 
+      run: terraform init 
     
     - name: List directory contents
       run: ls -R
