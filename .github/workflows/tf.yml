@@ -26,10 +26,13 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
       
+    - name: List directory contents
+      run: ls -R
+
     - name: Terraform init
       id: init
       run: terraform -chdir=dev init 
-      
+
     - name: Terraform plan
       id: plan
       run: terraform plan -input=false -no-color -var-file="dev/terraform.tfvars" -out tf.plan
