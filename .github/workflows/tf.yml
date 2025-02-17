@@ -40,3 +40,29 @@ jobs:
       
     - name: Terraform Apply
       run: terraform apply -input=false tf.plan
+
+  qa_terraform:
+    runs-on: ubuntu-latest
+    name: Terraform
+    environment: dev
+    steps:
+    - name: cleanUp
+      run: rm -rf .terraform
+      
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+
+    - name: Terraform init
+      working-directory: "."
+      id: init
+      run: terraform init 
+       
+    - name: Terraform plan
+      id: plan
+      run: terraform plan -input=false -no-color -var-file="qa/terraform.tfvars" -out tf.plan
+      
+    - name: Terraform Apply
+      run: terraform apply -input=false tf.plan
