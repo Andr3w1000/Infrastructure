@@ -32,7 +32,10 @@ jobs:
     - name: Terraform init
       id: init
       run: terraform -chdir=dev init 
-
+    
+    - name: List directory contents
+      run: ls -R
+    
     - name: Terraform plan
       id: plan
       run: terraform plan -input=false -no-color -var-file="dev/terraform.tfvars" -out tf.plan
