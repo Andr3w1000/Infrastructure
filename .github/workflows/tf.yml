@@ -27,19 +27,12 @@ jobs:
       uses: hashicorp/setup-terraform@v2
       
     - name: Terraform init
-      working-directory: "dev/"
       id: init
-      run: terraform init
+      run: terraform init -chdir=dev
 
-    - name: Terraform Sync state
-      working-directory: "dev/"
-      run: terraform refresh
-      
     - name: Terraform plan
-      working-directory: "dev/"
       id: plan
-      run: terraform plan -input=false -no-color -out tf.plan
+      run: terraform plan -input=false -no-color -var-file="dev/terraform.tfvars" -out tf.plan
       
     - name: Terraform Apply
-      working-directory: "dev/"
       run: terraform apply -input=false tf.plan
