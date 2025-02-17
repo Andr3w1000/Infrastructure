@@ -20,6 +20,9 @@ jobs:
     name: Terraform
     environment: dev
     steps:
+    - name: cleanUp
+      run: rm -rf .terraform
+      
     - name: Checkout
       uses: actions/checkout@v3
       
