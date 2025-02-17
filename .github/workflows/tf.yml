@@ -30,6 +30,7 @@ jobs:
       run: ls -R
 
     - name: Terraform init
+      working-directory: "."
       id: init
       run: terraform -chdir=dev init 
     
