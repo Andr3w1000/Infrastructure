@@ -7,10 +7,10 @@ resource "azurerm_resource_group" "resourcegroups" {
 #   display_name = "GitHubDevOps"  # Replace with your Service Principal's Display Name
 # }
 
-resource "azurerm_role_assignment" "example" {
-  principal_id   = "823aa1dc-d6f9-421a-bf26-70240d155855"
-  role_definition_name = "Contributor"
-  scope           = azurerm_resource_group.example.id
+resource "azurerm_role_assignment" "roleassignments" {
+    principal_id   = "823aa1dc-d6f9-421a-bf26-70240d155855"
+    role_definition_name = "Contributor"
+    scope = azurerm_resource_group.resourcegroups.id
 }
 
 resource "azurerm_storage_account" "storageaccounts" {
