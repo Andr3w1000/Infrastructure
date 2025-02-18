@@ -1,7 +1,11 @@
 variable "Location" {
-    type        = string
+  type = string
 }
 
 variable "ResourceGroup" {
-    type        = string
+  type = string
+}
+
+variable "Environment" {
+  type = string
 }
