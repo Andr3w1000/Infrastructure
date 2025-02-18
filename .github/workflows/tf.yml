@@ -32,7 +32,7 @@ jobs:
     - name: Terraform init
       working-directory: "."
       id: init
-      run: terraform  init -chdir=dev
+      run: terraform  init -backend-config="dev/state.config"
        
     - name: Terraform plan
       id: plan
@@ -59,7 +59,7 @@ jobs:
     - name: Terraform init
       working-directory: "."
       id: init
-      run: terraform init  -chdir=qa 
+      run: terraform init  -backend-config="qa/state.config"
        
     - name: Terraform plan
       id: plan
