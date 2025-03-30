@@ -17,7 +17,7 @@ env:
 jobs:
   dev_terraform:
     runs-on: ubuntu-latest
-    name: Terraform
+    name: Dev Environment Terraform
     environment: dev
     steps:
     - name: cleanUp
@@ -43,7 +43,7 @@ jobs:
 
   qa_terraform:
     runs-on: ubuntu-latest
-    name: Terraform
+    name: QA Environment Terraform
     environment: dev
     needs: dev_terraform
     steps:
